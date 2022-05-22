@@ -1,0 +1,25 @@
+/*Sum and difference
+ *Objective:
+ *Scan one line of two ints and one of two floats
+ *Print one line for the sum and difference of the ints
+ *Do likewise with the floats on a separate line. easy peasy.
+ */
+ 
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main()
+{
+    int a, b;
+    float c, d;
+    
+    scanf("%d %d", &a, &b);
+    scanf("%f %f", &c, &d);
+    
+    printf("%d %d\n", a+b, a-b);
+    printf("%0.1f %0.1f", c+d, c-d);
+    
+    return 0;
+}
