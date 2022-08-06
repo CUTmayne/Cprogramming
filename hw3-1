@@ -1,0 +1,55 @@
+/******************************************************************************
+
+                            Program Name: hw3-1.c
+                            
+                            Class: CS 3335
+                            HW: 03
+                            Problem: 01
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+char cipher(char ch, int n)
+{
+    char newChar;
+    
+    if(ch >= 'A' && ch <= 'Z')
+    {
+        newChar = ((ch - 'A') + n) % 26 + 'A';    
+    }
+    else if(ch >= 'a' && ch <= 'z')
+    {
+        newChar = ((ch - 'a') + n) % 26 + 'a';
+    }
+    else
+    {
+        newChar = ch;    
+    }
+    return newChar;
+}
+
+int main()
+{
+    //variables
+    char message[80];
+    int shift;
+    
+    //set message
+    printf("Enter message to be encrypted: ");
+    scanf("%[^\n]", message);
+    
+    //set shift
+    printf("Enter shift amount (1-25): ");
+    scanf("%d", &shift);
+    
+    //loop to proccess the characters in message with cipher method
+    for(int i = 0; i <= 80; i++)
+    {
+        message[i] = cipher(message[i], shift);    
+    }
+    //print the altered message
+    printf("Encrypted message: %s", message);
+
+    return 0;
+}
