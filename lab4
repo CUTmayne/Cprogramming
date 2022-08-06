@@ -1,0 +1,58 @@
+Lab4
+
+Write one single C program using for loops that gives the following two outputs, one after another -
+
+a) 
+
+....1
+...22
+..333
+.4444
+55555
+
+b) 
+....1
+...2.
+..3..
+.4...
+5....
+
+/******************************************************************************
+
+                            Lab 4
+                This seems like the dumb way to solve it 
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    for(int i=1; i<=5; i++){
+        for(int j=5; j>=1; j--){
+            if(j<=i){
+                printf("%d", i);
+            }
+            else{
+                printf(".");
+            }
+        }
+        printf("\n");
+    }
+    
+    printf("\n");
+    
+    for(int i=1; i<=5; i++){
+        for(int j=5; j>=1; j--){
+            if(j==i){
+                printf("%d", i);
+            }
+            else{
+                printf(".");
+            }
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
