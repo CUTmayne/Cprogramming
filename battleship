@@ -1,0 +1,356 @@
+CS 3335: C Programming 
+HW4
+Total 25pts
+
+Submission Guidelines 
+
+The program must have a header like this:
+ /* 
+Program Name: Program1.c 
+Programmer: Anurag Dasgupta
+Class: CS 3335 
+HW: 04
+*/ 
+
+Program must utilize proper and consistent brace style and indention style. 
+
+Program must be easy to read. In other words, use blank lines and white space as appropriate to make code read nicely. 
+
+Program must be commented and must use meaningful variable names. 
+
+
+Distribution of points: 
+
+10% for good programming practices like indentation, comments, good variable names, consistent bracing etc. 
+
+20% for the screenshots of compilation and execution with a good representation of inputs 
+
+10% for the results
+
+60% for the program 
+
+
+You are required to make two submissions: 
+
+Submit the program (only the source file, for example – program1.c) via BlazeVIEWassignment dropbox.
+
+b.   Submit a file containing the following - 
+
+i. Screenshot of proof of your program compilation and execution
+ii. Screenshot of entire output of at least one of the test runs.
+
+
+
+
+
+
+
+
+Problem:
+In this program you will be mimicking a game of Battleship. Your game board is a line of 10 slots. You have to implement 3 methods. The following methods must be implemented:
+void setBoard(int *)
+This method sets up the human’s game board. The method prompts the user for 2 slots to place the “ship”. The program should ensure that the slots are consecutive. In other words, your ship cannot be placed at slot 2 and at slot 6. Since the board has only 10 slots, valid slots are in the range of 0 to 9.
+void setComputerBoard(int *)
+Exactly the same as the setBoard method except that the position of the computer’s ship is set randomly. The computer’s ship must also be in consecutive slots.
+Int playGame(int *, int *)
+This method should do the following steps:
+Have the computer pick at random a slot to “fire” at. If the slot the computer picked on the human’s board is a ship, a “HIT” message is displayed. If the slot on the human’s board is empty, a “MISS” message is displayed. Print out the computer’s board and the human’s board as described at the bottom of the page.
+After the computer goes, have the human pick a slot to “fire” at. If the slot the human picked on the computer’s board is a ship, a “HIT” message is displayed. If the slot on the computer’s board is empty, a “MISS” message is displayed. Print out the computer’s board and the human’s board as described at the bottom of the page.
+ Repeat steps 1 and 2 until there is a winner. The computer wins if both of the human’s ship slots are hit. The human wins if both of the computer’s ship slots are hit.   
+
+The playGame method returns a 0 if the computer won. The playGame method returns a 1 if the human won.
+
+The computer board is printed off with the following characters: (The human board is printed off similarly)
+S – printed off in the slots where the computer’s ship is located.
+M - printed off in the slots where the human guessed incorrectly.
+H - printed off in the slots where the ship is located and where the human hit.
+              *  - printed off in all other slots
+
+You can assume the input will always be a positive integer. 
+Important: You should use pointer notation when referencing values inside an array as opposed to array notation.  For example, use *ptrToArray instead of array[0] and *(ptrToArray+1) instead of array[1], etc. You will lose 10 points for not following this notation.
+This homework can be solved using char pointers as well. I would accept that as a valid solution too. It is your choice whether you want to use int pointers or char pointers.
+You can also modify the parameters mentioned for the methods. As long as you have the methods performing the tasks stated in the problem, you will get credit.
+
+ A sample run of the code is below –
+
+Enter 1st position: 4
+Enter 2nd position: 5
+Computer guesses 9
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * * S S * * * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S S * * * * * *
+Enter guess: 4
+You guessed 4
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * * S S * * * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S S M * * * * *
+Computer guesses 4
+HIT!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * * H S * * * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S S M * * * * *
+Enter guess: 3
+You guessed 3
+HIT!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * * H S * * * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S H M * * * * *
+Computer guesses 7
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * * H S * M * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S H M * * * * *
+Enter guess: 9
+You guessed 9
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * * H S * M * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S H M * * * * M
+Computer guesses 3
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * M H S * M * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S H M * * * * M
+Enter guess: 5
+You guessed 5
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+* * * M H S * M * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S H M M * * * M
+Computer guesses 0
+MISS!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+M * * M H S * M * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * S H M M * * * M
+Enter guess: 2
+You guessed 2
+HIT!
+Human Board:
+0 1 2 3 4 5 6 7 8 9
+M * * M H S * M * M
+Computer Board:
+0 1 2 3 4 5 6 7 8 9
+* * H H M M * * * M
+Human wins!
+
+
+/******************************************************************************
+
+                            Program Name: hw4.c
+                            
+                            Class: CS 3335
+                            HW: 04
+                            Problem: 01
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+void setBoard(int *a)
+{
+    //ship coordinates
+    int x1;
+    int x2;
+    //set x1
+    printf("Enter 1st position: ");
+    scanf("%1d", &x1);
+    //set x2
+    printf("\nEnter 2nd position: ");
+    scanf("%1d", &x2);
+    //ensures that x2 is within 1 space of x1
+    while(x2 < (x1 - 1) || x2 > (x1 + 1))
+    {
+        printf("2nd position must be no more than 1 space away from the 1st.");
+        printf("\nEnter 2nd position: ");
+        scanf("%1d", &x2);
+    }
+    //sets ship coordinates on the player board
+    *(a+x1) = 1;
+    *(a+x2) = 1;
+}
+
+void setComputerBoard(int *b)
+{
+    //ship coordinates
+    int y1 = rand()%9;
+    int y2 = rand()%9;
+    //ensures that y2 is within 1 space of y1
+    while(y2 < (y1 - 1) || y2 > (y1 + 1))
+    {
+        y2 = rand()%9;
+    }
+    //sets ship coordinates on the CPU board
+    *(b+y1) = 1;
+    *(b+y2) = 1;
+}
+
+void printBoard(int *z)
+{
+    char *boardHead = {"0123456789"};
+    printf("%s\n", boardHead);
+    for(int i = 0; i < 10; i++)
+    {
+        
+        if(*(z+i) == 0)
+        {
+            printf("*");    
+        }
+        else if(*(z+i) == 1)
+        {
+            printf("S");    
+        }
+        else if(*(z+i) == 2)
+        {
+            printf("M");    
+        }
+        else
+        {
+            printf("H");    
+        }
+        
+        
+    }
+    printf("\n");
+}
+
+void attack(int *x, int shot)
+{
+    if(*(x+shot) == 1)
+    {
+        *(x+shot) = 3;
+        printf("Hit!\n");
+    }
+    else if(*(x+shot) == 3)
+    {
+        printf("Miss!\n");    
+    }
+    else
+    {
+        *(x+shot) = 2;
+        printf("Miss!\n");    
+    }
+}
+
+int winner(int *board)
+{
+    int score = 0;
+    for(int i = 0; i < 10; i++)
+    {
+        if(*(board+i) == 3)
+        {
+            score++;    
+        }
+    } 
+    return score;
+}
+
+int playGame(int *c, int *d)
+{
+    //board header
+    char *boardHead = {"0123456789"};
+    //player's attack coordinate
+    int playerGuess;
+    //cpu's attack coordinate
+    int cpuGuess;
+    //player score
+    int playerScore = 0;
+    //cpu score
+    int cpuScore = 0;
+    //player enters ship location
+    setBoard(c);
+    //cpu enters ship location
+    setComputerBoard(d);
+    //game loop
+    while(playerScore < 2 && cpuScore < 2)
+    {
+        //cpu attacks player
+        cpuGuess = rand()%9;
+        printf("Computer guesses: %d\n", cpuGuess);  
+        attack(c, cpuGuess);
+        
+        //print result on board
+        printf("Human board:\n");
+        printBoard(c);
+        printf("Computer board: \n");
+        printBoard(d);
+        
+        //update score
+        cpuScore = winner(c);
+        
+        //player attacks 
+        printf("Enter guess: ");
+        scanf("%1d", &playerGuess);
+        attack(d, playerGuess);
+        
+        //print result on board
+        printf("Human board:\n");
+        printBoard(c);
+        printf("Computer board: \n");
+        printBoard(d);
+        
+        //update score
+        playerScore = winner(d);
+    }
+    //determine winner
+    if(playerScore == 2)
+    {
+        printf("Human wins!");
+    }
+    else
+    {
+        printf("CPU wins!");    
+    }
+    
+    return 0;    
+}
+
+int main()
+{   
+    //player play board
+    int playerBoard[] = {0,0,0,0,0,0,0,0,0,0};
+    //pointer to player play board
+    int *ptrPlayer = playerBoard;
+    //cpu play board
+    int cpuBoard[] = {0,0,0,0,0,0,0,0,0,0};
+    //pointer to cpu play board
+    int *ptrCPU = cpuBoard;
+    //set seed value
+    srand(time(0));
+    //start game
+    playGame(ptrPlayer, ptrCPU);
+   
+
+    return 0;
+}
+
