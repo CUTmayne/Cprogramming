@@ -1,0 +1,90 @@
+Lab 2
+
+
+Write a C program to compute and print Fibonacci values for some integers. You can assume that all input numbers are positive integers.
+
+The Fibonacci numbers are defined as follows:
+
+The first two Fibonacci numbers are 1 and 1.  Any Fibonacci number after the first two numbers is the sum of its two predecessors.
+
+The Fibonacci numbers can be listed as the following sequence:
+
+        1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
+
+It is clear that the first two Fibonacci numbers are 1, the third is 2,the fourth is 3, the tenth is 55, and so on.
+
+Here are some sample runs: 
+----------------------------------------------------------------------
+Sample 1:
+Enter an integer: 11
+The Fibonacci value for 11 is 89
+
+Sample 2:
+Enter an integer: 4
+The Fibonacci value for 4 is 3
+
+Sample 3:
+Enter an integer: 9
+The Fibonacci value for 9 is 34
+
+Sample 4:
+Enter an integer: 34
+The Fibonacci value for 34 is 5702887
+
+Sample 5:
+Enter an integer: 1
+The Fibonacci value for 1 is 1
+
+Sample 6:
+Enter an integer: 20
+The Fibonacci value for 20 is 6765
+
+/******************************************************************************
+
+                            Fn = [(1+sqrt(5))^n]/[(2^n)*sqrt(5)],
+                            
+                            Where the result is rounded to the nearest 
+                            integer value.
+                            
+                            Because n is assumed to be positive, I omit 
+                            part of the formula.
+                            
+                            Had a margin of error so it was commented out
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <math.h>
+
+int main()
+{
+    int n;
+    int f1 = 0;
+    int f2 = 1;
+    int fn;
+    
+    printf("Enter an integer: ");
+    scanf("%d", &n);
+    
+    if(n == 1){
+        printf("The Fibonacci value for %d is 1", n);
+    }
+    else{
+        
+        for(int i = 2; i <= n; i++){
+            fn = f1+f2;
+            f1 = f2;
+            f2 = fn;
+        }
+        printf("The Fibonacci value for %d is %d", n, fn);
+        //float term1 = sqrt(5);
+        //float numerator = pow(1+term1, n)-pow(1-term1, n);
+        //float denominator = pow(2, n)*term1;
+        //int formula = round(numerator/denominator);
+    
+        //printf("The Fibonacci value for %d is %d", n, formula);
+    }
+    
+    return 0;
+    
+}
