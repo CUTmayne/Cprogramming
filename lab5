@@ -1,0 +1,71 @@
+Write a program in C that uses a function called printStars(n) where n is an ineteger provided by the user in the main() and it denotes the number of rows. PrintStars(n) then prints 2n  asterisks until the n-th row if n is odd and prints 2n asterisks until the n-th row if n is even. 
+
+Sample runs:
+Enter n:
+5
+Output:
+
+* * 
+* * * * 
+* * * * * * * * 
+* * * * * * * * * * * * * * * * 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+
+
+Enter n:
+4
+Output:
+* * 
+* * * * 
+* * * * * *  
+* * * * * * * * 
+
+/******************************************************************************
+
+                            Lab 5
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <math.h>
+int printStars(int input)
+{
+    
+    if(input%2 == 0)
+    {
+        for(int i=1; i<=input; i++)
+        {
+            int power = 2*i;
+            for(int j = 1; j<=power; j++)
+            {
+                printf("*");
+            }
+            printf("\n");
+        }    
+    }
+    else
+    {
+        for(int i=1; i<=input; i++)
+        {
+            int power = pow(2, i);
+            for(int j = 1; j<=power; j++)
+            {
+                printf("*");
+            }
+            printf("\n");
+        } 
+    }
+}
+
+int main()
+{
+    int n;
+    printf("Enter n: ");
+    scanf("%d", &n);
+    printf("Output:\n\n");
+    printStars(n);
+
+    return 0;
+}
+
+
