@@ -1,0 +1,65 @@
+/******************************************************************************
+
+                            lab 6
+
+
+*******************************************************************************/
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    //declare n
+    int n;
+    int position = 0;
+    char insert[80];
+    char temp;
+    //user defines value of n
+    printf("Enter n: ");
+    scanf("%d", &n);
+    
+    //n defines bounds of input[][]
+    char input[n][n];
+    //declare and define char array
+    
+    //request values for input[][]
+    //loop which reads 1 line, parses the number characters, and concatenates
+    //them to a given position in input[][].
+    //if a space is read, no value is assigned. position in row is advanced
+    printf("Enter the values row-wise: \n");
+    //scanf(" %[^\n]", insert);
+    //
+        //scanf(" %[^\n]", insert);
+    for(int j = 0; j < n; j++){
+         scanf(" %[^\n]", insert);  
+    
+        for(int i = 0; i < 80; i++)
+        {
+            temp = insert[i];
+            if(temp >= '0' && temp <= '9')
+            {
+                input[position][j] = temp;
+                position++;
+            }
+            
+        }
+    }
+    //loop to return max value
+    for(int k = 0; k < n; k++)
+    {
+        int max = 0;
+        for(int m = 0; m < n; m++)
+        {
+            if(input[k][m] > max)
+            {
+                max = input[k][m];    
+            }
+        }
+        printf("%d\n", max); //doesn't work right
+    }
+    
+    //unit test 
+    //printf("%c\n", insert[0]);
+   //printf("%c", input[1][0]);
+    
+    return 0;
+}
