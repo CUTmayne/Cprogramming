@@ -1,0 +1,76 @@
+Lab3
+
+An integer X is a divisor of another integer Y if X divides Y "evenly;" 
+that is, Y % X is 0. A integer is prime if it is 2 or greater and its only 
+divisors are 1 and itself. 
+
+In this lab, you are to write a C program that, when completed, will
+compute whether a number is prime. If the input number is prime, 
+it will say it has 0 divisors and the number is prime. Otherwise, 
+the program will print the divisors (except 1 and the number itself) and the total number of divisors.
+
+Sample run 1:
+______________
+
+Enter a number: 24
+
+2
+3
+4
+6
+8
+12
+
+Number 24 has 6 divisors
+
+Sample run 2:
+_________________
+
+Enter a number: 23
+
+Number 23 has 0 divisors
+This number is prime
+
+/******************************************************************************
+
+                           Lab 3
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    
+    int n;
+    int count = 0;
+    
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    
+    if(n<2){
+        printf("Number %d has %d divisors\n", n, count);
+        printf("This number is not prime");
+    }
+    else if(n==2){
+        printf("Number %d has %d divisors\n", n, count);
+        printf("This number is prime");
+    }
+    else{
+        for(int i = 2; i<n; i++){
+            if(n%i == 0){
+                count++;
+                printf("%d\n", i);
+            }
+        }
+        printf("Number %d has %d divisors\n", n, count);
+        if(count > 0){
+            printf("This number is not prime");
+        }
+        else{
+            printf("This number is prime");
+        }
+    }
+
+    return 0;
+}
