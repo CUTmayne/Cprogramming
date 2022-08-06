@@ -1,0 +1,60 @@
+CS 3335
+Lab8
+10points
+
+
+Write a program using recursion that takes a non-negative integer n as input and returns the sum of its digits. Your solution must use recursion. Without it no credit will be given.
+
+Sample run:
+Run 1
+Enter n: 123
+Output: 6
+
+Run 2
+Enter n: 4652
+Output: 17
+
+
+/******************************************************************************
+
+                            Program Name: lab8.c
+                            
+                            Class: CS 3335
+                            Lab: 08
+
+*******************************************************************************/
+
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+
+int recursion(int n[], int length)
+{
+    if(length <= 0)
+    {
+        return 0;    
+    }    
+    else
+    {
+        return (recursion(n, length - 1) + n[length - 1]);    
+    }
+}
+
+int main()
+{
+    int input[] = {1, 2, 3, 4};
+    int index = 4;
+    printf("Input: ");
+    for(int i = 0; i < index; i++)
+    {
+        printf("%d", input[i]);    
+    }
+    
+    //scanf("%s\n", input);
+    //scanf("%[^\n]", input);
+    //int size = log2(sizeof(input));
+    
+
+    printf("\nOutput: %d", recursion(input, index));
+    return 0;
+}
