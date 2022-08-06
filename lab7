@@ -1,0 +1,67 @@
+Lab 7
+
+This lab requires you to use array and pointers. No credit will be given if you do not use pointers.
+
+You will be writing a program that reads in four characters 
+and then prints them out in a rotated pattern.  For example, if
+the input characters are ABCD, the output will be (with no leading spaces):
+ 
+               ABCD
+               BCDA
+               CDAB
+               DABC
+
+Another sample run is:
+
+input: pqrs
+
+Output:
+pqrs
+qrsp
+rspq
+spqr
+
+
+You need to write a function RotateFourChars using pointers and a "temp" variable to 
+store c1 (the first character) in order to rotate the characters. 
+
+
+/******************************************************************************
+
+                        Program Name: lab7.c
+                        
+                        Class: CS 3335
+                        Lab: 07
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    //Variable declarations
+    char *input = "ABCD";
+    char c1 = *input;
+    
+    //print
+    printf("Input: %s\n", input);
+    printf("Output: \n");
+    
+    //iterate through input
+    for(int i = 0; i < 4; i++)
+    {
+        printf("%s", input);
+        for(int j = 0; j < i; j++)
+        {
+            printf("%c", c1);
+            c1++;
+        }
+        //reset pointer index
+        c1 -= i;
+        input++;
+        printf("\n");
+    }
+    
+    return 0;
+}
+
