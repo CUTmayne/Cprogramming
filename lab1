@@ -1,0 +1,94 @@
+/******************************************************************************
+
+                            Lab 1 
+                            
+
+*******************************************************************************/
+
+#include <stdio.h>
+
+int main()
+{
+    int firstTerm;
+    int difference;
+    int totalTerms;
+    
+    printf("Enter the first term: ");
+    while(scanf("%d", &firstTerm)== 0){
+        printf("Only use Integer values!");
+        exit(0);
+    }
+    
+    printf("Enter the common difference: ");
+    while(scanf("%d", &difference)== 0){
+        printf("Only use Integer values!");
+        exit(0);
+    }
+    
+    printf("Enter the total number of terms: ");
+    while(scanf("%d", &totalTerms)== 0){
+        printf("Only use Integer values!");
+        exit(0);
+    }
+    
+    int lastTerm = firstTerm+(totalTerms-1)*difference;
+    int sum = totalTerms*(firstTerm+lastTerm)/2;
+    
+    printf("Last Term: %d\n", lastTerm);
+    printf("Sum of all terms: %d\n", sum);
+    printf("Average of all terms: %0.1f", sum/totalTerms*1.0);
+    
+
+    return 0;
+}
+
+Lab 1
+
+                        
+Problem Description:
+
+An example of arithmetic progression would be a series of integers (which we 
+will call terms) like:
+
+	3, 7, 11, 15, 19, 23, 27, 31, ...
+
+
+Note that 3 is the first term, 7 is the second term, 11 is the 3rd term, 
+etc.  4 is the common difference between any two consecutive terms.  Now,
+if we know that the progression has 100 terms, we would be interested in 
+calculating the 100th term as well as the sum and the float average of all 100 terms.
+
+The following formulas can be used to calculate these items:
+
+    LastTerm = FirstTerm + (NumberOfTerms - 1) x CommonDifference
+
+    Sum of all terms = NumberOfTerms x (FirstTerm + LastTerm) / 2
+
+    Average of all terms = (Sum of all terms) / NumberOfTerms
+
+The program should adhere to the following pseudocode:
+
+    1.  Prompt for and read the first term
+    2.  Prompt for and read the common difference
+    3.  Prompt for and read the number of terms
+    4.  Calculate the last term (see formula above)
+    5.  Calculate the sum of all the terms (see formula above)
+    6.  Calculate the average of all the terms (see formula above)
+    7.  Display the results
+	
+Your program must match the following sample run (between the lines of
+dashes). Note that the 3, 3, and 100 on the first three lines were 
+entered by the user.
+
+You should also check results for other set of inputs as well.
+
+----------------------------------------------------------------------
+Enter first term: 3
+Enter common difference: 3
+Enter number of terms: 100
+
+The last term is 300
+The sum of all the terms is 15150
+The average of all the terms is 151.5
+----------------------------------------------------------------------
+
